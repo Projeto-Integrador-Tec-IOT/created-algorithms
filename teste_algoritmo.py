@@ -1,5 +1,12 @@
 from WazeRouteCalculator import WazeRouteCalculator, WRCError
 
+"""
+    Deverá terminar lógica do algoritmo, implementando:
+        - Cálculo de melhor rota
+        - Terminar o cálculo de distâncias
+        - Realizar testes
+"""
+
 def obter_localizacoes():
     # Coletando as localizações com input para testar o algoritmo
     localizacoes = []
