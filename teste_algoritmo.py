@@ -3,50 +3,54 @@ from WazeRouteCalculator import WazeRouteCalculator, WRCError
 """
     Deverá terminar lógica do algoritmo, implementando:
         - Cálculo de melhor rota
-        - Terminar o cálculo de distâncias
-        - Realizar testes
+        - Realizar testes (Fazendo a execução do algoritmo)
 """
 
-def obter_localizacoes():
-    # Coletando as localizações com input para testar o algoritmo
-    localizacoes = []
-    print("\nDigite os endereços (um por linha)")
-    print("Endereço de origem: \nDestino final: \nEndereços entre origem e destino: \n")
+def obter_enderecos():
+    enderecos = []
 
-
+    print("\nDigite os endereços (um por linha):")
+    print("Primeiro endereço: Origem")
+    print("Último endereço: Destino final")
+    print("Endereços intermediários: Pontos de entrega\n")
+    
     while True:
-        # Strip para remover os espaços
-        localizacao = input("Endereço (deixar em branco se tiver terminado): ").strip()
+        endereco = input("Endereço (deixe em branco para finalizar): ").strip()
 
-        if localizacao == False:
-            if len(localizacao) < 2:
-                print("Insira origem e destino por favor")
+        if not endereco:
+            if len(enderecos) < 2:
+                print("Necessário pelo menos origem e destino!")
                 continue
 
             break
 
-        localizacoes.append(localizacao)
-        return localizacoes
-    
-    def calc_distancias():
-        matriz = {}
+        enderecos.append(endereco)
 
-        for origem in localizacoes:
-            matriz[origem] = {}
+    return enderecos
 
-            for destino in localizacoes:
-                # Verificação da distancia origem-destino
-                if origem == destino:
-                    matriz[origem][destino] == 0
+def calcular_matriz_distancias(enderecos):
+    matriz = {}
 
-                else:
-                    try:
-                        rota = WazeRouteCalculator(origem, destino, region='BR')
-                        # _, distancia = rota.calc_route_info() testar essa linha
-                        # matriz[origem][destino] = destino
-                        # print(f"{origem} -> {destino}: {distancia} km")
+    for origem in enderecos:
+        matriz[origem] = {}
 
-                    except Exception as e:
-                        print(f"Corrigir esse erro: {e}")
+        for destino in enderecos:
+            if origem == destino:
+                matriz[origem][destino] = 0.0
 
-        return matriz
+            else:
+                try:
+                    rota = WazeRouteCalculator(origem, destino, region='BR')
+
+                    _, distancia = rota.calc_route_info() # Uso do _ para ignorar a variável tempo da biblioteca
+                    matriz[origem][destino] = distancia
+
+                    print(f"{origem} -> {destino}: {distancia} km")
+
+
+                except WRCError as e:
+                    print(f"Erro calculando {origem} -> {destino}: {str(e)}")
+                    matriz[origem][destino] = float('inf')
+
+
+    return matriz
