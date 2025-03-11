@@ -61,7 +61,7 @@ def main():
         'Av. Paulista, 1000, São Paulo, SP',
         'R. dos Eucaliptos, 870, São Paulo, SP',
         'R. José dos Santos, 45, São Bernardo do Campo, SP',
-        'R. São Benedito, 140, Embu das Artes',
+        'R. Salvador Branco de Andrade, 182 Taboão da Serra, SP',
     ]
 
     coordenadas = []
