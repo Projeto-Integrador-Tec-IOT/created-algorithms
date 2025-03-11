@@ -1,2 +1,0 @@
-# Algoritmo criado para calcular a menor rota entre pontos(não direcionais)
-# Link para apoio --> http://freecodecamp.org/portuguese/news/algoritmo-de-caminho-de-custo-minimo-de-dijkstra-uma-introducao-detalhada-e-visual/#:~:text=O%20algoritmo%20de%20Dijkstra%20encontra,e%20todos%20os%20outros%20n%C3%B3s.
