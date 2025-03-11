@@ -1,7 +1,7 @@
 import requests
 from geopy.geocoders import Nominatim
 
-api_key = 'f3de8113-8582-4e7c-a7c6-ed866cc751b7'
+api_key = 'INSIRA API KEY AQUI'
 
 def obter_coordenadas(endereco):
     geolocator = Nominatim(user_agent="rota_otimizada")
