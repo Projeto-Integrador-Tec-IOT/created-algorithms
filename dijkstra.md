@@ -6,3 +6,4 @@
 > Links para apoio: 
 > - https://www.datacamp.com/pt/tutorial/dijkstra-algorithm-in-python
 > - https://pt.wikipedia.org/wiki/Algoritmo_de_Dijkstra
+
