@@ -2,7 +2,7 @@ import requests
 import itertools
 from geopy.geocoders import Nominatim
 
-api_key = 'INSIRA API_KEY AQUI'
+api_key = '4188c881-30c7-4fc5-9fbc-beac066cc4ac'
 
 def obter_coordenadas(endereco):
     geolocator = Nominatim(user_agent="rota_otimizada")
@@ -21,8 +21,7 @@ def calcular_distancia(ponto1, ponto2):
     if response.status_code == 200:
         dados = response.json()
         if 'paths' in dados:
-            return dados['paths'][0]['distance'] / 1000  
-        
+            return dados['paths'][0]['distance'] / 1000  # Convertendo de metros para quilômetros
     return float('inf')
 
 def calcular_matriz_distancias(coordenadas):
@@ -42,9 +41,10 @@ def calcular_rota_otimizada(matriz):
     pontos = list(range(num_pontos))
     melhor_distancia = float('inf')
     melhor_rota = None
-    
-    for rota in itertools.permutations(pontos[1:-1]):
-        rota_completa = [pontos[0]] + list(rota) + [pontos[-1]]
+
+    # Permutação de todas as rotas possíveis, fixando o ponto de partida e o ponto final
+    for rota in itertools.permutations(pontos[1:]):  # Não permutar o primeiro ponto (origem)
+        rota_completa = [pontos[0]] + list(rota) + [pontos[-1]]  # Garantir que o ponto final é fixo
         distancia_total = 0
 
         for i in range(len(rota_completa) - 1):
@@ -60,8 +60,8 @@ def main():
     enderecos = [
         'Av. Paulista, 1000, São Paulo, SP',
         'R. dos Eucaliptos, 870, São Paulo, SP',
+        'R. Salvador Branco de Andrade, 182, Taboão da Serra, SP',
         'R. José dos Santos, 45, São Bernardo do Campo, SP',
-        'R. Salvador Branco de Andrade, 182 Taboão da Serra, SP',
     ]
 
     coordenadas = []
@@ -70,7 +70,6 @@ def main():
         coords = obter_coordenadas(endereco)
         if coords:
             coordenadas.append(coords)
-
         else:
             print(f"Erro ao obter coordenadas para: {endereco}")
 
@@ -80,15 +79,11 @@ def main():
 
         if melhor_rota:
             print("\nMelhor rota encontrada:")
-
             for i in range(len(melhor_rota) - 1):
                 print(f"{enderecos[melhor_rota[i]]} -> {enderecos[melhor_rota[i + 1]]}")
-
             print(f"Distância total: {distancia:.2f} km")
-
         else:
             print("Não foi possível calcular uma rota viável.")
-            
     else:
         print("Erro ao obter coordenadas para os endereços.")
 
