@@ -49,6 +49,7 @@ def calcular_rota_otimizada(matriz):
     
     for rota in itertools.permutations(pontos[1:-1]):
         rota_completa = [pontos[0]] + list(rota) + [pontos[-1]]
+        print(f"Testando rota: {rota_completa}")
         distancia_total = 0
 
         for i in range(len(rota_completa) - 1):
