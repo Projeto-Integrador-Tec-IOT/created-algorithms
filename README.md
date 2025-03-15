@@ -10,7 +10,7 @@ Este repositório tem como foco armazenar todos os algoritmos criados para resol
 > <br>
 
 > [!IMPORTANT]
-> 1. **Certifique-se de ter o [Python 3.13](https://www.python.org/downloads/)**
+> 1. **Certifique-se de ter o [Python 3.10+](https://www.python.org/downloads/)**
 > 2. **Comando pip para instalação das bibliotecas:**<br>
 >  ```bash
 >    pip install requests geopy python-dotenv
