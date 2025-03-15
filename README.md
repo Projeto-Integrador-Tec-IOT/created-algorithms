@@ -15,3 +15,8 @@ Este repositório tem como foco armazenar todos os algoritmos criados para resol
 >  ```bash
 >    pip install requests geopy python-dotenv
 >  ```
+> 3. **Adicione um .env na raiz do projeto com a key da api da [Graphhoper](https://www.graphhopper.com/)**
+> ```bash
+> # Exemplo: 
+> API_KEY=aaaaaaaaaaaa-bbbbbbbbbbbb-cccccccccccc
+> ```
