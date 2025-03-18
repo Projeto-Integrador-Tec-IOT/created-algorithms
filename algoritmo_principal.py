@@ -67,6 +67,9 @@ def main():
         'R. dos Eucaliptos, 870, São Paulo, SP',
         'R. José dos Santos, 45, São Bernardo do Campo, SP',
         'R. Salvador Branco de Andrade, 182 Taboão da Serra, SP',
+        'Rua das Acácias, 200, São Paulo, SP',
+        'Av. Faria Lima, 500, São Paulo, SP',
+        'R. do Sol, 300, São Bernardo do Campo, SP',
     ]
 
     coordenadas = []
